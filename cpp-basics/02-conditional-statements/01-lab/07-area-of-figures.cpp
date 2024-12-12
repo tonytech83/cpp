@@ -10,34 +10,38 @@ int main()
 
     std::cout << std::fixed << std::setprecision(3);
 
+    double area = 0;
+
     if (type == "square")
     {
         double side;
         std::cin >> side;
 
-        std::cout << side * side << std::endl;
+        area = side * side;
     }
     else if (type == "rectangle")
     {
         double length, width;
         std::cin >> length >> width;
 
-        std::cout << length * width << std::endl;
+        area = length * width;
     }
     else if (type == "circle")
     {
         double radius;
         std::cin >> radius;
 
-        std::cout << M_PI * radius * radius << std::endl;
+        area = M_PI * radius * radius;
     }
     else
     {
         double length, height;
         std::cin >> length >> height;
 
-        std::cout << length * height / 2 << std::endl;
+        area = length * height / 2;
     }
+
+    std::cout << area << std::endl;
 
     return 0;
 }
