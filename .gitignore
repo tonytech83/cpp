@@ -2,3 +2,4 @@
 .idea
 *.exe
 .clang-format
+.clang-format.bak
