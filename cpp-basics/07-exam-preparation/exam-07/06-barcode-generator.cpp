@@ -10,9 +10,6 @@ int main() {
     int start, end;
     cin >> start >> end;
 
-    string start_to_str = to_string(start);
-    string end_to_str = to_string(end);
-
     for (int i = to_string(start)[0] - '0'; i <= to_string(end)[0] - '0'; i++) {
         if (i % 2 != 0) {
             for (int j = to_string(start)[1] - '0'; j <= to_string(end)[1] - '0'; j++) {
