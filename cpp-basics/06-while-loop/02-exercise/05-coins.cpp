@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     double balance;
     cin >> balance;
-    int balance_in_coins = static_cast<int>(balance) * 100;
+    int balance_in_coins = balance * 100;
     int coins_count = 0;
 
     while (balance_in_coins > 0) {
