@@ -6,7 +6,7 @@ The Upskill program C++ Development is specifically designed to provide a struct
 
 The ultimate goal of this Upskill program is not only to provide a solid theoretical foundation but also to prepare participants for real-world project requirements, reinforcing their understanding of the practical value of their C++ programming knowledge and skills.
 
-### 1. [Programming Basics with C++](./cpp-basics/cpp-basics.md)
+### 1. [Programming Basics with C++](./01-cpp-basics/cpp-basics.md)
 The first course, "Programming Basics with C++", offers participants the opportunity to master the initial stages of programming. This includes learning how to work with integrated development environments (IDEs), defining variables, managing data, using operators, working with the console interface, and applying conditional statements and loops.
 ### 2. C++ Fundamentals
 The next course, "C++ Fundamentals", emphasizes the importance of data structures by covering arrays, functions, linear containers, and string handling specific to C++.
