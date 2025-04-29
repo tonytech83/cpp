@@ -1,6 +1,3 @@
-//
-// Created by tonytech on 4/26/25.
-//
 #include <iostream>
 using namespace std;
 

@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -10,12 +11,13 @@ int main() {
     cin >> countryName;
 
     if (countryName == "USA" || countryName == "England") {
-        cout << "English" << endl;
+        cout << "English";
     } else if (countryName == "Spain" || countryName == "Argentina" || countryName == "Mexico") {
-        cout << "Spanish" << endl;
+        cout << "Spanish";
     } else {
-        cout << "unknown" << endl;
+        cout << "unknown";
     }
+    cout << endl;
 
     return 0;
 }

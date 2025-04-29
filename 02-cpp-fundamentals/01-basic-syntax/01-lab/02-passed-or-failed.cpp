@@ -2,11 +2,11 @@
 
 using namespace std;
 
-int main() {
+auto main() -> int {
     double grade;
     cin >> grade;
 
-    if (grade >= 3.00) {
+    if (grade >= 3.0) {
         cout << "Passed!" << endl;
     } else {
         cout << "Failed!" << endl;

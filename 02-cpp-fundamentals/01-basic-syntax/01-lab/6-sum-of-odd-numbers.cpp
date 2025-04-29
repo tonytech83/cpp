@@ -6,19 +6,13 @@
 using namespace std;
 
 int main() {
-    int number;
-    cin >> number;
+    int n;
+    cin >> n;
 
-    int counter = 0;
     int sum = 0;
-    for (int i = 1; i <= 100; i++) {
-        if (i % 2 != 0) {
-            counter++;
-            sum += i;
-            cout << i << endl;
-        }
-
-        if (counter >= number) break;
+    for (int curr = 1; n != 0; curr += 2, n--) {
+        cout << curr << endl;
+        sum += curr;
     }
 
     cout << "Sum: " << sum << endl;
