@@ -5,15 +5,7 @@
 #include <iostream>
 using namespace std;
 
-void printSign(const int number) {
-    if (number < 0) {
-        cout << "The number " << number << " is negative." << endl;
-    } else if (number == 0) {
-        cout << "The number " << number << " is zero." << endl;
-    } else {
-        cout << "The number " << number << " is positive." << endl;
-    }
-}
+void printSign(int number);
 
 int main() {
     int n;
@@ -22,4 +14,16 @@ int main() {
     printSign(n);
 
     return 0;
+}
+
+void printSign(const int number) {
+    cout << "The number " << number << " is ";
+
+    if (number < 0) {
+        cout << "negative." << endl;
+    } else if (number == 0) {
+        cout << "zero." << endl;
+    } else {
+        cout << "positive." << endl;
+    }
 }
