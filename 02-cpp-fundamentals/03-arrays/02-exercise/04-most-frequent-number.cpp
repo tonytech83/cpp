@@ -13,21 +13,20 @@ void fillArray(array<int, maxSize> &arr, const int size) {
 }
 
 void printMostFreqNumber(const array<int, maxSize> &arr, const int size) {
-    int maxLength = 0;
+    int maxCount = 0;
     array<int, 10> freq{};
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
         freq[arr[i]]++;
-    }
 
     for (int i = 0; i <= 9; i++) {
-        if (freq[i] >= maxLength) {
-            maxLength = freq[i];
+        if (freq[i] >= maxCount) {
+            maxCount = freq[i];
         }
     }
 
     for (int i = 0; i <= 9; i++) {
-        if (freq[i] == maxLength) {
+        if (freq[i] == maxCount) {
             cout << i << ' ';
         }
     }
