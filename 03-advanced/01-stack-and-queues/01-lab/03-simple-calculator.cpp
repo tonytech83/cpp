@@ -29,11 +29,17 @@ int main() {
     }
 
     while (!operators.empty()) {
-        if (operators.top() == '+')
-            result += numbers.top();
-        else
-            result -= numbers.top();
+        op = operators.top();
+        number = numbers.top();
 
+        switch (op) {
+            case '+':
+                result += number;
+                break;
+            case '-':
+                result -= number;
+                break;
+        }
         numbers.pop();
         operators.pop();
     }
