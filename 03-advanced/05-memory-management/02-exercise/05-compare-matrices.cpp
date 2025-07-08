@@ -22,6 +22,7 @@ auto readMatrix(istream &in, int **&matrix, int &rows, int &cols) -> void {
 
     matrix = new int *[rows];
 
+    cols = 0;
     for (int r = 0; r < rows; r++) {
         string currRow;
         getline(in, currRow);
@@ -31,7 +32,7 @@ auto readMatrix(istream &in, int **&matrix, int &rows, int &cols) -> void {
         istringstream iss(currRow);
 
         for (int c = 0; c < cols; c++)
-            in >> matrix[r][c];
+            iss >> matrix[r][c];
     }
 }
 
@@ -49,30 +50,33 @@ auto printMatrix(int **matrix, const int &rows, const int &cols) -> void {
     }
 }
 
-auto compareMatrices(int **m1, int **m2, int m1r, int m1c, int m2r, int m2c) -> bool {
+auto compareMatrices(int **m1, int **m2, const int m1r, const int m1c, const int m2r, const int m2c) -> bool {
     if (m1r != m2r || m1c != m2c)
-        return false;
+        return false; // not equal dimensions
 
-    return true;
+    for (int r = 0; r < m1r; r++)
+        for (int c = 0; c < m1c; c++)
+            if (m1[r][c] != m2[r][c])
+                return false; // we found at least one ono-equal element
+
+    return true; // matrices are equal
 }
 
 auto main() -> int {
     int m1rows, m1cols, m2rows, m2cols;
 
-    // pointer to pointer = 2D array
+    // pointer to pointer => 2D array
     int **matrix1, **matrix2;
 
     readMatrix(cin, matrix1, m1rows, m1cols);
     readMatrix(cin, matrix2, m2rows, m2cols);
 
     // Debug
-    printMatrix(matrix1, m1rows, m1cols);
+    // printMatrix(matrix1, m1rows, m1cols);
+    // printMatrix(matrix2, m2rows, m2cols);
 
 
-    // if (compareMatrices(matrix1, matrix2, m1rows, m1cols, m2rows, m2cols))
-    //     cout << "equal" << endl;
-    // else
-    //     cout << "not equal" << endl;
+    cout << (compareMatrices(matrix1, matrix2, m1rows, m1cols, m2rows, m2cols) ? "equal" : "not equal") << endl;
 
     deleteMatrix(matrix1, m1rows);
     deleteMatrix(matrix2, m2rows);
