@@ -18,17 +18,15 @@ auto readCompany(istream &istr) -> void * {
     istringstream iss(line);
     int id;
     iss >> id;
-
-    if (!iss)
+    string companyName;
+    getline(iss, companyName);
+    if (companyName.empty())
         return nullptr;
 
-    string companyName;
-    iss >> companyName;
-
     const int neededBuff = sizeof(int) + companyName.length() + 1;
-    const auto currCompany = new char[neededBuff];
+    char *currCompany = new char[neededBuff];
 
-    const auto idLocation = reinterpret_cast<int *>(currCompany);
+    int *idLocation = (int *) currCompany;
     *idLocation = id;
     char *nameLocation = currCompany + sizeof(int);
     strcpy(nameLocation, companyName.c_str());
@@ -49,7 +47,7 @@ auto printCompany(void *company) -> void {
 auto hasValidId(void *company) -> bool {
     const int *idPrt = static_cast<int *>(company);
 
-    return *idPrt >= 0;
+    return *idPrt > 0;
 }
 
 auto main() -> int {
