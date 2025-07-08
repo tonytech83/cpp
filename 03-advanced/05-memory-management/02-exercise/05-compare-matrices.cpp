@@ -2,19 +2,80 @@
 // Created by tonytech on 08.07.2025.
 //
 #include <iostream>
+#include <sstream>
 using namespace std;
 
-auto readMatrix(char **matrix,const int rows, const int cols) -> void{
+auto countTokens(const string &line) -> size_t {
+    size_t tokens = 0;
 
+    istringstream iss(line);
+    string token;
+    while (iss >> token)
+        tokens++;
+
+    return tokens;
+}
+
+auto readMatrix(istream &in, int **&matrix, int &rows, int &cols) -> void {
+    in >> rows;
+    in.ignore();
+
+    matrix = new int *[rows];
+
+    for (int r = 0; r < rows; r++) {
+        string currRow;
+        getline(in, currRow);
+        cols = static_cast<int>(countTokens(currRow));
+
+        matrix[r] = new int[cols];
+        istringstream iss(currRow);
+
+        for (int c = 0; c < cols; c++)
+            in >> matrix[r][c];
+    }
+}
+
+auto deleteMatrix(int **matrix, const int &rows) -> void {
+    for (int r = 0; r < rows; r++)
+        delete[] matrix[r];
+    delete[] matrix;
+}
+
+auto printMatrix(int **matrix, const int &rows, const int &cols) -> void {
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++)
+            cout << matrix[r][c] << ' ';
+        cout << endl;
+    }
+}
+
+auto compareMatrices(int **m1, int **m2, int m1r, int m1c, int m2r, int m2c) -> bool {
+    if (m1r != m2r || m1c != m2c)
+        return false;
+
+    return true;
 }
 
 auto main() -> int {
     int m1rows, m1cols, m2rows, m2cols;
 
     // pointer to pointer = 2D array
-    char **matrix1, **matrix2;
+    int **matrix1, **matrix2;
 
-    readMatrix(matrix1, m1rows, m1cols);
+    readMatrix(cin, matrix1, m1rows, m1cols);
+    readMatrix(cin, matrix2, m2rows, m2cols);
+
+    // Debug
+    printMatrix(matrix1, m1rows, m1cols);
+
+
+    // if (compareMatrices(matrix1, matrix2, m1rows, m1cols, m2rows, m2cols))
+    //     cout << "equal" << endl;
+    // else
+    //     cout << "not equal" << endl;
+
+    deleteMatrix(matrix1, m1rows);
+    deleteMatrix(matrix2, m2rows);
 
     return 0;
 }
