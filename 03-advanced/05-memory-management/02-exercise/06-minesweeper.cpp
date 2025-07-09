@@ -43,27 +43,20 @@ auto isInside(const int rows, const int cols, const int r, const int c) -> bool 
 
 auto sweep(const shared_ptr<shared_ptr<char[]>[]> &mF, shared_ptr<shared_ptr<int[]>[]> &sF, const int rows,
            const int cols) -> void {
+
+    // Directions for the 8 neighbors + center
+    const int dR[9] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
+    const int dC[9] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+
     for (int r = 0; r < rows; r++)
         for (int c = 0; c < cols; c++)
             if (mF[r][c] == '!') {
-                if (isInside(rows, cols, r - 1, c - 1))
-                    sF[r - 1][c - 1]++;
-                if (isInside(rows, cols, r - 1, c))
-                    sF[r - 1][c]++;
-                if (isInside(rows, cols, r - 1, c + 1))
-                    sF[r - 1][c + 1]++;
-                if (isInside(rows, cols, r, c - 1))
-                    sF[r][c - 1]++;
-                if (isInside(rows, cols, r, c))
-                    sF[r][c]++;
-                if (isInside(rows, cols, r, c + 1))
-                    sF[r][c + 1]++;
-                if (isInside(rows, cols, r + 1, c - 1))
-                    sF[r + 1][c - 1]++;
-                if (isInside(rows, cols, r + 1, c))
-                    sF[r + 1][c]++;
-                if (isInside(rows, cols, r + 1, c + 1))
-                    sF[r + 1][c + 1]++;
+                for (int d = 0; d < 9; d++) {
+                    int nr = r + dR[d];
+                    int nc = c + dC[d];
+                    if (isInside(rows, cols, nr, nc))
+                        sF[nr][nc]++;
+                }
             }
 }
 
