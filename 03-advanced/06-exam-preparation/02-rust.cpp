@@ -15,21 +15,12 @@ auto readMatrix(istream &in, vector<vector<char>> &m, int lines) -> void {
         getline(in, line);
         istringstream iss(line);
         vector<char> row;
+
         char c;
         while (iss >> c)
             row.push_back(c);
 
         m.push_back(row);
-    }
-}
-
-auto printMatrix(const vector<vector<char>> &m, const int size) -> void {
-
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            cout << m[i][j];
-        }
-        cout << endl;
     }
 }
 
@@ -40,29 +31,34 @@ auto isInside(const int size, const int r, const int c) -> bool {
     return false;
 }
 
-auto doRust(vector<vector<char>> &m, const int size) -> void {
-    for (int r = 0; r < size; r++) {
-        bool stop = false;
-        for (int c = 0; c < size; c++) {
-            if (m[r][c] == '!') {
-                if (isInside(size, r - 1, c) && m[r - 1][c] != '#')
-                    m[r - 1][c] = '!';
-                if (isInside(size, r + 1, c) && m[r + 1][c] != '#')
-                    m[r + 1][c] = '!';
-                if (isInside(size, r, c - 1) && m[r][c - 1] != '#')
-                    m[r][c - 1] = '!';
-                if (isInside(size, r, c + 1) && m[r][c + 1] != '#')
-                    m[r][c + 1] = '!';
-                stop = true;
-                break;
-
-            }
+auto printMatrix(const vector<vector<char>> &m, const int size) -> void {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            cout << m[i][j];
         }
-        if (stop)
-            break;
+        cout << endl;
     }
-    printMatrix(m, size);
-    cout << "=================================" <<  endl;
+}
+
+auto doRust(vector<vector<char>> &m, const int size) -> void {
+    const vector<vector<char>> temp = m;
+
+    for (int r = 0; r < size; r++)
+        for (int c = 0; c < size; c++)
+            if (temp[r][c] == '!') {
+                if (isInside(size, r - 1, c) && m[r - 1][c] != '#')
+                    if (m[r - 1][c] == '.')
+                        m[r - 1][c] = '!';
+                if (isInside(size, r + 1, c) && m[r + 1][c] != '#')
+                    if (m[r + 1][c] == '.')
+                        m[r + 1][c] = '!';
+                if (isInside(size, r, c - 1) && m[r][c - 1] != '#')
+                    if (m[r][c - 1] == '.')
+                        m[r][c - 1] = '!';
+                if (isInside(size, r, c + 1) && m[r][c + 1] != '#')
+                    if (m[r][c + 1] == '.')
+                        m[r][c + 1] = '!';
+            }
 }
 
 auto main() -> int {
@@ -74,7 +70,7 @@ auto main() -> int {
     while (units--)
         doRust(matrix, matrixSize);
 
-    // printMatrix(matrix, matrixSize);
+    printMatrix(matrix, matrixSize);
 
     return 0;
 }
