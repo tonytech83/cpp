@@ -18,11 +18,11 @@ The "C++ Advanced" course delves into the specifics of the C++ language and cove
 
 ## Topics
 
-- [`Stack and Queues`](https://github.com/tonytech83/cpp/tree/main/03-advanced/01-stack-and-queues)
-- [`Map and Set`](https://github.com/tonytech83/cpp/tree/main/03-advanced/02-map-and-set)
-- [`Multidimensional Arrays`](https://github.com/tonytech83/cpp/tree/main/03-advanced/03-multidimensional-arrays)
-- [`Computer Memory, References and Pointers`](https://github.com/tonytech83/cpp/tree/main/03-advanced/04-computer-memory-references-and-pointers/01-lab)
-- [`Memory Management`](https://github.com/tonytech83/cpp/tree/main/03-advanced/05-memory-management)
+- [`Stack and Queues`](https://github.com/tonytech83/cpp/tree/main/03-cpp-advanced/01-stack-and-queues)
+- [`Map and Set`](https://github.com/tonytech83/cpp/tree/main/03-cpp-advanced/02-map-and-set)
+- [`Multidimensional Arrays`](https://github.com/tonytech83/cpp/tree/main/03-cpp-advanced/03-multidimensional-arrays)
+- [`Computer Memory, References and Pointers`](https://github.com/tonytech83/cpp/tree/main/03-cpp-advanced/04-computer-memory-references-and-pointers/01-lab)
+- [`Memory Management`](https://github.com/tonytech83/cpp/tree/main/03-cpp-advanced/05-memory-management)
 
 <br/>
 
