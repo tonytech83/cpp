@@ -43,22 +43,19 @@ auto printMatrix(const vector<vector<char>> &m, const int size) -> void {
 auto doRust(vector<vector<char>> &m, const int size) -> void {
     const vector<vector<char>> temp = m;
 
+    // Directions
+    const int dR[4] = {-1, 1, 0, 0};
+    const int dC[4] = {0, 0, -1, 1};
+
     for (int r = 0; r < size; r++)
         for (int c = 0; c < size; c++)
-            if (temp[r][c] == '!') {
-                if (isInside(size, r - 1, c) && m[r - 1][c] != '#')
-                    if (m[r - 1][c] == '.')
-                        m[r - 1][c] = '!';
-                if (isInside(size, r + 1, c) && m[r + 1][c] != '#')
-                    if (m[r + 1][c] == '.')
-                        m[r + 1][c] = '!';
-                if (isInside(size, r, c - 1) && m[r][c - 1] != '#')
-                    if (m[r][c - 1] == '.')
-                        m[r][c - 1] = '!';
-                if (isInside(size, r, c + 1) && m[r][c + 1] != '#')
-                    if (m[r][c + 1] == '.')
-                        m[r][c + 1] = '!';
-            }
+            if (temp[r][c] == '!')
+                for (int d(0); d < 4; d++) {
+                    const int nr = r + dR[d];
+                    const int nc = c + dC[d];
+                    if (isInside(size, nr, nc) && m[nr][nc] != '#')
+                        m[nr][nc] = '!';
+                }
 }
 
 auto main() -> int {
