@@ -59,7 +59,6 @@ auto printPerson(const Person &person) -> void {
          << ", weight(kg): " << person.body.weightKgs << endl;
 }
 
-
 int main() {
     printPerson(Person("Kojcho", 42, 1.83, 74.3));
 
