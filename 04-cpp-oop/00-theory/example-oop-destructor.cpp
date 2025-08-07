@@ -46,6 +46,19 @@ public:
         }
         return *this;
     }
+
+    // Operator overloading
+    int &operator[](const int &index) const { return this->arr[index]; }
+
+    // Operator overloading implementing hash table
+    int &operator[](const string &s) const {
+        int index = 1;
+        for (int i(1); i <= s.length(); i++) {
+            index *= s[i - 1] * i * 7;
+        }
+
+        return this->arr[index % this->numElements];
+    }
 };
 
 
@@ -57,10 +70,21 @@ auto main() -> int {
         second.setElement(0, 10);
         second.setElement(1, 20);
 
+        // After adding operator overloading for `[]` we can do
+        second[1] = 30;
+
         first = second;
     }
 
-    cout << first.getElement(1) << endl;
+    cout << first.getElement(0) << endl;
+    cout << first[1] << endl;
+
+    // Operator overloading
+    const IntList third(1000);
+    third["Pesho"] = 11;
+    third["Misho"] = 23;
+
+    cout << third["Pesho"] << endl;
 
     return 0;
 
