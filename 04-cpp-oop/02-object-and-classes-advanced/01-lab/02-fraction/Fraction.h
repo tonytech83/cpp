@@ -47,11 +47,6 @@ public:
         }
     }
 
-    // auto operator++() -> void {
-    //     this->numerator++;
-    //     this->denominator++;
-    // }
-
     [[nodiscard]] auto getFraction() const -> string {
         ostringstream oss;
         oss << this->getNumerator() << "/" << this->getDenominator();
