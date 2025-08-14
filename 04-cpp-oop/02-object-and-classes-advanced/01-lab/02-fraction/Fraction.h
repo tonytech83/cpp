@@ -1,4 +1,5 @@
-#include <iostream>
+// #include <iostream>
+#pragma once
 #include <sstream>
 #include <string>
 using namespace std;
@@ -8,9 +9,9 @@ class Fraction {
     int denominator;
 
 public:
-    Fraction();
+    Fraction() : numerator(0), denominator(0) {} // Default constructor
 
-    Fraction(int num, int denom) : numerator(num), denominator(denom) {}
+    Fraction(const int num, const int denom) : numerator(num), denominator(denom) {}
 
     [[nodiscard]] int getNumerator() const { return this->numerator; }
 
@@ -21,6 +22,8 @@ public:
     }
 
     auto operator==(const Fraction &other) const -> bool {
+        // Fraction a = this->reduce();
+        // Fraction b = other.reduce();
         return this->numerator == other.numerator && this->denominator == other.denominator;
     }
 
@@ -51,12 +54,12 @@ public:
 
     [[nodiscard]] auto getFraction() const -> string {
         ostringstream oss;
-        oss << this->numerator << "/" << this->denominator;
+        oss << this->getNumerator() << "/" << this->getDenominator();
         return oss.str();
     }
 
     // Prefix ++
-    Fraction& operator++() {
+    Fraction &operator++() {
         ++numerator;
         ++denominator;
         return *this;
@@ -70,3 +73,15 @@ public:
         return temp;
     }
 };
+
+inline ostream &operator<<(ostream &os, const Fraction &frac) {
+    os << frac.getNumerator() << "/" << frac.getDenominator();
+    return os;
+}
+
+inline istream &operator>>(istream &is, Fraction &frac) {
+    int nom, denom;
+    is >> nom >> denom;
+    frac = Fraction(nom, denom);
+    return is;
+}
