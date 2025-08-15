@@ -3,17 +3,18 @@
 //
 #pragma once
 #include <string>
+using namespace std;
 
 #ifndef CPP_CAR_H
 #define CPP_CAR_H
 
 class Car {
-    std::string brand;
-    std::string model;
+    string brand;
+    string model;
     int year;
 
 public:
-    Car(std::string brand, std::string model, const int year) : brand(std::move(brand)), model(std::move(model)), year(year) {}
+    Car(string brand, string model, const int year) : brand(std::move(brand)), model(std::move(model)), year(year) {}
 
     [[nodiscard]] auto GetBrand() const -> string { return this->brand; }
     [[nodiscard]] auto GetModel() const -> string { return this->model; }
