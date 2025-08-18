@@ -6,7 +6,7 @@ C++ Advanced
 
 The "C++ Advanced" course delves into the specifics of the C++ language and covers more complex topics such as pointers, references, memory management, and working with dynamic memory. Participants will also be introduced to other fundamental data structures like associative containers (map and set), container adapters (stack and queue), and how to manipulate them. They will gain the skills needed to work correctly with multidimensional arrays and understand their particularities. All topics are reinforced through a series of practical exercises. By the end of the course, students will have expanded their knowledge and be well-prepared for object-oriented programming with C++.
 
-<br/>
+- [C++ Advanced - June 2025](https://softuni.bg/trainings/4916/cplusplus-advanced-june-2025#lesson-87897)
 
 ## Language
 

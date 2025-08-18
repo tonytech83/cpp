@@ -6,7 +6,9 @@ Programming Basics with C++
 
 The first course, "Programming Basics with C++", offers participants the opportunity to master the initial stages of programming. This includes learning how to work with integrated development environments (IDEs), defining variables, managing data, using operators, working with the console interface, and applying conditional statements and loops.
 
-<br/>
+
+
+- [Programming Basics with C++ - February 2025](https://softuni.bg/trainings/4914/programming-basics-with-cplusplus-february-2025#lesson-87833)
 
 ## Language
 
@@ -18,12 +20,12 @@ The first course, "Programming Basics with C++", offers participants the opportu
 
 ## Topics
 
-- [`First Steps In Coding`](https://github.com/tonytech83/cpp/tree/main/cpp-basics/01-first-steps-in-coding)
-- [`Conditional Statements`](https://github.com/tonytech83/cpp/tree/main/cpp-basics/02-conditional-statements)
-- [`Conditional Statements Advanced`](https://github.com/tonytech83/cpp/tree/main/cpp-basics/03-conditional-statements-advanced)
-- [`For Loop`](https://github.com/tonytech83/cpp/tree/main/cpp-basics/04-for-loop)
-- [`While Loop`](https://github.com/tonytech83/cpp/tree/main/cpp-basics/06-while-loop)
-- [`Nested Loops`](https://github.com/tonytech83/cpp/tree/main/cpp-basics/05-nested-loops)
+- [`First Steps In Coding`](https://github.com/tonytech83/cpp/tree/main/01-cpp-basics/01-first-steps-in-coding)
+- [`Conditional Statements`](https://github.com/tonytech83/cpp/tree/main/01-cpp-basics/02-conditional-statements)
+- [`Conditional Statements Advanced`](https://github.com/tonytech83/cpp/tree/main/01-cpp-basics/03-conditional-statements-advanced)
+- [`For Loop`](https://github.com/tonytech83/cpp/tree/main/01-cpp-basics/04-for-loop)
+- [`While Loop`](https://github.com/tonytech83/cpp/tree/main/01-cpp-basics/06-while-loop)
+- [`Nested Loops`](https://github.com/tonytech83/cpp/tree/main/01-cpp-basics/05-nested-loops)
 
 <br/>
 

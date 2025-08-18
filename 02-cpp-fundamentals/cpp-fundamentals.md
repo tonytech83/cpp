@@ -6,7 +6,7 @@ C++ Fundamentals
 
 The "C++ Fundamentals" course introduces participants to the basic data structures and their use in solving algorithmic problems. The course covers arrays and their specifics in C++, functions and how they can be useful, as well as linear containers (vector and list) and string objects from the STL. Throughout the course, common mistakes when working with the language will be highlighted and ways to avoid them will be demonstrated. In addition, participants will solve exercises to reinforce their understanding of the material.
 
-<br/>
+- [C++ Fundamentals - April 2025](https://softuni.bg/trainings/4915/cplusplus-fundamentals-april-2025#lesson-87866)
 
 ## Language
 

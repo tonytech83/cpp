@@ -6,7 +6,7 @@ C++ OOP
 
 The "C++ OOP" course delves deeper into the specifics of the C++ language and covers more complex topics. The course will focus entirely on the features of object-oriented programming in C++. Students will start by creating classes and objects, while also exploring the concepts of constructors and destructors, as well as inheritance and polymorphism. Equally important, they will learn how to properly structure code in large-scale projects, ensuring truly organized code. They will also become familiar with the fundamental principles of object-oriented programming in C++, which are an integral part of the language.
 
-<br/>
+- [C++ OOP - August 2025](https://softuni.bg/trainings/4917/cplusplus-oop-august-2025)
 
 ## Language
 
