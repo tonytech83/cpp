@@ -4,8 +4,10 @@
 #include "Management.h"
 
 auto Management::AddEmployee(const Employee &e)->void { employees.push_back(e); }
-auto Management::SaveToFile() const -> void {
-    for (const auto &employee : employees) {
-        employee.SaveToFile();
-    }
-}
+
+// Not need method SaveToFile after implementation of FileWriter class
+// auto Management::SaveToFile() const -> void {
+//     for (const auto &employee : employees) {
+//         employee.SaveToFile();
+//     }
+// }

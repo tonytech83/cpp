@@ -8,4 +8,5 @@
 Employee::Employee(const int id, std::string name, const double salary) :
     id(id), name(std::move(name)), salary(salary) {}
 
-auto Employee::SaveToFile() const -> void { std::cout << name << " Saved!" << std::endl; }
+// Not need method SaveToFile after implementation of FileWriter class
+// auto Employee::SaveToFile() const -> void { std::cout << name << " Saved!" << std::endl; }

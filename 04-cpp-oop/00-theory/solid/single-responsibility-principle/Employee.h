@@ -16,7 +16,8 @@ public:
     Employee() = default;
     Employee(int id, std::string name, double salary);
 
-    auto SaveToFile() const -> void;
+    // Not need method SaveToFile after implementation of FileWriter class
+    // auto SaveToFile() const -> void;
 
     [[nodiscard]] auto GetId() const -> int { return this->id; }
     [[nodiscard]] auto GetName() const -> std::string { return this->name; }

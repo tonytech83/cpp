@@ -16,9 +16,10 @@ public:
     Management() = default;
 
 
-    auto GetEmployees() const -> std::vector<Employee> { return this->employees; }
+    [[nodiscard]] auto GetEmployees() const -> std::vector<Employee> { return this->employees; }
     auto AddEmployee(const Employee &e) -> void;
-    auto SaveToFile() const -> void;
+    // Not need method SaveToFile after implementation of FileWriter class
+    // auto SaveToFile() const -> void;
 };
 
 #endif // CPP_MANAGEMENT_H
