@@ -5,11 +5,13 @@
 #ifndef CPP_PRINTUTILS_H
 #define CPP_PRINTUTILS_H
 
-#include <set>
+#include <iostream>
 
 template<class T>
-auto printContainer(std::set<T> s.begin(), std::set<T> s) -> void {}
+auto printContainer(class T::iterator start, class T::iterator end) -> void {
+    for (; start != end; ++start)
+        std::cout << *start << ' ';
+    std::cout << std::endl;
+}
 
 #endif // CPP_PRINTUTILS_H
-
-
