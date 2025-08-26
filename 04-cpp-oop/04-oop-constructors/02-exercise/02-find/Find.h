@@ -41,8 +41,9 @@ public:
     }
 
     [[nodiscard]] auto find_lambda() const {
-        const auto it = find_if(this->companies.begin(), this->companies.end(),
-                                [this](const Company *curr) -> bool { return curr->getId() == this->searchId; });
+        auto searchFunc = [this](const Company *curr) -> bool { return curr->getId() == this->searchId; };
+
+        const auto it = find_if(this->companies.begin(), this->companies.end(), searchFunc);
 
         return it == this->companies.end() ? nullptr : *it;
     }
