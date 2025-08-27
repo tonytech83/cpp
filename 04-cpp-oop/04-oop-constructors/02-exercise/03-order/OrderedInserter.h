@@ -17,10 +17,12 @@ class OrderedInserter {
         auto it = companies.begin();
         for (; it != companies.end(); ++it) {
             if ((*it)->getId() > companyId) {
-                return it;
+                // return it;
+                break;
             }
         }
-        return companies.end();
+        // return companies.end();
+        return it;
     }
 
     [[nodiscard]] auto findIdxToInsert_lambda(const int &companyId) const -> std::vector<const Company *>::iterator {
@@ -34,9 +36,8 @@ class OrderedInserter {
 public:
     explicit OrderedInserter(std::vector<const Company *> &companies) : companies(companies) {}
 
-    // auto insert(const Company *company) const -> void { companies.insert(findIdxToInsert(company->getId()), company);
-    // }
-    auto insert(const Company *curr) const -> void { companies.insert(findIdxToInsert_lambda(curr->getId()), curr); }
+    auto insert(const Company *curr) const -> void { companies.insert(findIdxToInsert(curr->getId()), curr); }
+    // auto insert(const Company *curr) const -> void { companies.insert(findIdxToInsert_lambda(curr->getId()), curr); }
 };
 
 #endif // CPP_ORDEREDINSERTER_H
