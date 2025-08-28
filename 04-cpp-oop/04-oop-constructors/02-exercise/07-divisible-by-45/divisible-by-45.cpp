@@ -12,8 +12,8 @@ constexpr int divider = 45;
 // to be divisible to 9 => sum(all digits) % 9 == 0
 
 auto isDivisibleBy5(const BigInt &big_int) -> bool {
-    const string numStr = big_int.getDigits();
-    return numStr.back() == '5' || numStr.back() == '0';
+    const char lastDigit = big_int.getDigits().back();
+    return lastDigit == '5' || lastDigit == '0';
 }
 
 auto isDivisibleBy9(const BigInt &big_int) -> bool {
