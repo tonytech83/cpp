@@ -13,9 +13,10 @@ inline auto removeInvalid(std::list<Company *> &companies) -> void {
     while (it != companies.end()) {
         const Company *company = *it;
         if (company->getId() < 0) {
-            delete company;
             // `erase(it)` removes the element at it and returns an iterator to the next element
+            // take the iterator before delete the company
             it = companies.erase(it);
+            delete company;
         } else {
             ++it;
         }

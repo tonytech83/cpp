@@ -1,38 +1,35 @@
 #ifndef COMPANY_H
 #define COMPANY_H
 
-#include <string>
 #include <sstream>
-#include <vector>
+#include <string>
 #include <utility>
+#include <vector>
 
 class Company {
 private:
-	int id;
-	std::string name;
-	std::vector<std::pair<char, char> > employees;
+    int id;
+    std::string name;
+    std::vector<std::pair<char, char>> employees;
 
 public:
-	Company(int id, std::string name, std::vector<std::pair<char, char> > employees)
-		: id(id)
-		, name(name)
-		, employees(employees) {}
+    Company(int id, std::string name, std::vector<std::pair<char, char>> employees) :
+        id(id), name(name), employees(employees) {}
 
-	std::string toString() {
-		std::ostringstream stream;
-		stream << id << " " << name << " ";
+    std::string toString() {
+        std::ostringstream stream;
+        stream << id << " " << name << " ";
 
-		for (int i = 0; i < employees.size(); i++) {
-			auto initials = employees[i];
-			stream << initials.first << initials.second;
-			if (i < employees.size() - 1) {
-				stream << " ";
-			}
-		}
+        for (int i = 0; i < employees.size(); i++) {
+            auto initials = employees[i];
+            stream << initials.first << initials.second;
+            if (i < employees.size() - 1) {
+                stream << " ";
+            }
+        }
 
-		return stream.str();
-	}
+        return stream.str();
+    }
 };
 
 #endif // !COMPANY_H
-
