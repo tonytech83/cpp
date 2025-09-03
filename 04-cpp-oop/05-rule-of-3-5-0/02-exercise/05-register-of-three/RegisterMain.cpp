@@ -1,76 +1,72 @@
-#include <iostream>
-#include <string>
 #include <cstdlib>
+#include <iostream>
 #include <sstream>
+#include <string>
 
 #include "Company.h"
 #include "Register.h"
 
-std::istream& operator>>(std::istream& in, Company& company) {
-	return in >> company.id >> company.name;
-}
+std::istream &operator>>(std::istream &in, Company &company) { return in >> company.id >> company.name; }
 
-std::ostream& operator<<(std::ostream& out, const Company& company) {
-	return out << company.id << " " << company.name;
-}
+std::ostream &operator<<(std::ostream &out, const Company &company) { return out << company.id << " " << company.name; }
 
-std::istream& operator>>(std::istream& in, Register& reg) {
-	size_t numCompanies;
-	in >> numCompanies;
+std::istream &operator>>(std::istream &in, Register &reg) {
+    size_t numCompanies;
+    in >> numCompanies;
 
-	Register readRegister(numCompanies);
+    Register readRegister(numCompanies);
 
-	for (size_t i = 0; i < numCompanies; i++) {
-		Company c;
-		in >> c;
+    for (size_t i = 0; i < numCompanies; i++) {
+        Company c;
+        in >> c;
 
-		readRegister.add(c);
-	}
+        readRegister.add(c);
+    }
 
-	reg = readRegister;
+    reg = readRegister;
 
-	return in;
+    return in;
 }
 
 Company doRun(std::string inputStr) {
-	std::istringstream input(inputStr);
+    std::istringstream input(inputStr);
 
-	Register companyRegister;
-	input >> companyRegister;
+    Register companyRegister;
+    input >> companyRegister;
 
-	int id;
-	input >> id;
+    int id;
+    input >> id;
 
-	return companyRegister.get(id);
+    return companyRegister.get(id);
 }
 
 int main() {
-	size_t numRuns;
-	std::cin >> numRuns;
+    size_t numRuns;
+    std::cin >> numRuns;
 
-	std::string line;
-	std::ostringstream inputBuffer;
+    std::string line;
+    std::ostringstream inputBuffer;
 
-	Company result;
+    Company result;
 
-	while (std::getline(std::cin, line) && line != "end") {
-		inputBuffer << line << std::endl;
-	}
+    while (std::getline(std::cin, line) && line != "end") {
+        inputBuffer << line << std::endl;
+    }
 
-	std::string inputStr = inputBuffer.str();
+    std::string inputStr = inputBuffer.str();
 
-	for (size_t run = 0; run < numRuns; run++) {
-		Company newResult = doRun(inputStr);
-		if (run > 0) {
-			if (result.getId() != newResult.getId() || result.getName() != newResult.getName()) {
-				std::cout << "wrong result on run " + run << std::endl;
-			}
-		}
+    for (size_t run = 0; run < numRuns; run++) {
+        Company newResult = doRun(inputStr);
+        if (run > 0) {
+            if (result.getId() != newResult.getId() || result.getName() != newResult.getName()) {
+                std::cout << "wrong result on run " + run << std::endl;
+            }
+        }
 
-		result = newResult;
-	}
+        result = newResult;
+    }
 
-	std::cout << result << std::endl;
+    std::cout << result << std::endl;
 
-	return 0;
+    return 0;
 }
