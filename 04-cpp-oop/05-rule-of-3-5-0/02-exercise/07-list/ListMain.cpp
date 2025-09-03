@@ -1,14 +1,14 @@
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 #include "List.h"
 
 List mergeSortedLists(List a, List b) {
     List merged;
 
-    while(!a.isEmpty() || !b.isEmpty()) {
-        List * listToTakeFrom;
+    while (!a.isEmpty() || !b.isEmpty()) {
+        List *listToTakeFrom;
         if (a.isEmpty()) {
             listToTakeFrom = &b;
         } else if (b.isEmpty()) {
@@ -36,7 +36,7 @@ int main() {
     string listLine;
     getline(cin, listLine);
 
-    while(listLine != "end") {
+    while (listLine != "end") {
         istringstream lineStream(listLine);
 
         List currentList;
