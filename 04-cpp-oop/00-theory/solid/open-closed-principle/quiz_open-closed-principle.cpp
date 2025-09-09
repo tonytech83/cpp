@@ -45,7 +45,7 @@ struct Boolean final : Question {
         else if (input == "No")
             answerIndex = 1;
         else {
-            cout << input << "Not answered!" << endl;
+            cout << '\'' << input << "\' " << "Not answered!" << endl;
             return;
         }
 
