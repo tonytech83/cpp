@@ -21,17 +21,11 @@ std::vector<std::string> readWhitespaceSeparatedValuesLine() {
     return values;
 }
 
-bool lessThanBySize(const std::string &a, const std::string &b) {
-    return a.size() < b.size();
-}
+bool lessThanBySize(const std::string &a, const std::string &b) { return a.size() < b.size(); }
 
-bool lessThanByLex(const std::string &a, const std::string &b) {
-    return a < b;
-}
+bool lessThanByLex(const std::string &a, const std::string &b) { return a < b; }
 
-bool moreThanBySize(const std::string &a, const std::string &b) {
-    return a.size() > b.size();
-}
+bool moreThanBySize(const std::string &a, const std::string &b) { return a.size() > b.size(); }
 
 int main() {
     std::vector<std::string> values = readWhitespaceSeparatedValuesLine();
