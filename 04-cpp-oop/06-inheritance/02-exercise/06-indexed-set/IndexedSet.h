@@ -8,22 +8,20 @@ typedef int Value;
 
 class IndexedSet {
     std::set<Value> valuesSet;
-    Value *valuesArray;
-
+    Value * valuesArray;
 public:
     IndexedSet();
-    IndexedSet(const IndexedSet &other);
+    IndexedSet(const IndexedSet& other);
 
-    void add(const Value &v);
+    void add(const Value& v);
 
     size_t size() const;
 
-    const Value &operator[](size_t index) const;
+    const Value& operator[](size_t index);
 
-    IndexedSet &operator=(const IndexedSet &other);
+    IndexedSet& operator=(const IndexedSet& other);
 
     ~IndexedSet();
-
 private:
     void buildIndex();
     void clearIndex();
