@@ -11,7 +11,7 @@ Snake::Snake(const int fieldRows, const int fieldCols, const Point &startPos) :
 
 Snake::~Snake() = default;
 
-auto moveSnakeHead(const Direction dir, Point &headPos) -> void {
+auto updateSnakeHead(const Direction dir, Point &headPos) -> void {
     switch (dir) {
         case Direction::UP:
             headPos.row--;
@@ -50,7 +50,7 @@ auto checkNewHeadPosition(const Point &newPos, const int &filedRows, const int &
 
 auto Snake::move(const Direction dir, const vector<Point> &obstacles, vector<Point> &powerUps) -> StatusCode {
 
-    moveSnakeHead(dir, _currPos);
+    updateSnakeHead(dir, _currPos);
 
     if (!checkNewHeadPosition(_currPos, _FIELD_ROWS, _FIELD_COLS, obstacles, _snakeNodes))
         return StatusCode::SNAKE_DEAD;
