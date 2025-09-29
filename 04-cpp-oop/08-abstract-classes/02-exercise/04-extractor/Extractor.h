@@ -9,7 +9,7 @@ class Extractor {
 private:
 	std::istream& stream;
 protected:
-	virtual bool process(char symbol, std::string& output) = 0;
+    virtual bool process(char symbol, std::string &output) = 0;
 public:
 	Extractor(std::istream& stream) : stream(stream) {}
 

@@ -23,7 +23,7 @@ protected:
 			return false;
 	}
 
-	virtual bool shouldBuffer(char symbol) = 0;
+    virtual bool shouldBuffer(char symbol) = 0;
 public:
 	BufferedExtractor(std::istream& stream) : Extractor(stream) {}
 };
