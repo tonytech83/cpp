@@ -7,10 +7,9 @@
 
 class FileSystemObjectsContainer {
 public:
-	virtual void add(const std::shared_ptr<FileSystemObject>& obj) = 0;
+    virtual void add(const std::shared_ptr<FileSystemObject> &obj) = 0;
 
-	virtual ~FileSystemObjectsContainer() {}
+    virtual ~FileSystemObjectsContainer() {}
 };
 
 #endif // !FILE_SYSTEM_OBJECTS_CONTAINER_H
-
