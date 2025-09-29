@@ -8,9 +8,7 @@ class DeathKnight : public Hero
     public:
         DeathKnight() = delete;
 
-        DeathKnight(const std::string & name,
-                    const int           maxMana,
-                    const int           baseManaRegenRate);
+        DeathKnight(const std::string &name, const int maxMana, const int baseManaRegenRate);
 
         virtual ~DeathKnight() = default;
 
