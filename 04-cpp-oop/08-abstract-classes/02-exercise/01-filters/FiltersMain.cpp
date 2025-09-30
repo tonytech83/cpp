@@ -6,21 +6,21 @@
 #include "FilterFactory.h"
 
 int main() {
-	std::string input;
-	std::getline(std::cin, input);
+    std::string input;
+    std::getline(std::cin, input);
 
-	const FilterFactory factory;
+    const FilterFactory factory;
 
-	std::string filterDefinition;
-	std::getline(std::cin, filterDefinition);
+    std::string filterDefinition;
+    std::getline(std::cin, filterDefinition);
 
-	Filter* filter = factory.buildFilter(filterDefinition);
+    Filter *filter = factory.buildFilter(filterDefinition);
 
-	filter->append(input);
+    filter->append(input);
 
-	std::cout << filter->extract() << std::endl;
+    std::cout << filter->extract() << std::endl;
 
-	delete filter;
+    delete filter;
 
-	return 0;
+    return 0;
 }

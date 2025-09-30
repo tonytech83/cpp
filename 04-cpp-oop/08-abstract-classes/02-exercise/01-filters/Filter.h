@@ -1,34 +1,35 @@
 #ifndef FILTER_H
 #define FILTER_H
 
-#include <string>
 #include <sstream>
+#include <string>
 
 class Filter {
 private:
-	std::ostringstream filtered;
+    std::ostringstream filtered;
+
 protected:
-	virtual bool shouldFilterOut(char symbol) const = 0;
+    virtual bool shouldFilterOut(char symbol) const = 0;
+
 public:
-	void append(std::string s) {
-		for (char symbol : s) {
-			if (!shouldFilterOut(symbol)) {
-				filtered << symbol;
-			}
-		}
-	}
+    void append(std::string s) {
+        for (char symbol: s) {
+            if (!shouldFilterOut(symbol)) {
+                filtered << symbol;
+            }
+        }
+    }
 
-	std::string extract() {
-		std::string filteredStr = filtered.str();
+    std::string extract() {
+        std::string filteredStr = filtered.str();
 
-		filtered.str("");
-		filtered.clear();
+        filtered.str("");
+        filtered.clear();
 
-		return filteredStr;
-	}
+        return filteredStr;
+    }
 
-	virtual ~Filter() {}
+    virtual ~Filter() {}
 };
 
 #endif // !FILTER_H
-
