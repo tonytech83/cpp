@@ -7,71 +7,65 @@
 
 class EndCommand : public Command {
 
-    public:
+public:
+    EndCommand(std::istream &istr) : Command(istr) {};
 
-        EndCommand(std::istream & istr) : Command(istr) {} ;
+    virtual void process(void) override;
 
-        virtual void process(void) override; 
-
-        virtual ~EndCommand() override {};
+    virtual ~EndCommand() override {};
 };
 
 class InitCommand : public Command {
 
     int initQ;
 
-    public:
+public:
+    InitCommand(std::istream &istr);
 
-        InitCommand(std::istream & istr);
+    virtual void process(void) override;
 
-        virtual void process(void) override;
-
-        virtual ~InitCommand() override;
+    virtual ~InitCommand() override;
 };
 
 class TwoParametersCommand : public Command {
-    private:
-        int par1, par2;
-    public:
-        TwoParametersCommand(std::istream & istr) : Command(istr) {
-            istr >> par1 >> par2;
-        }
+private:
+    int par1, par2;
 
-        int getPar1(void) const { return par1; }
-        int getPar2(void) const { return par2; }
+public:
+    TwoParametersCommand(std::istream &istr) : Command(istr) { istr >> par1 >> par2; }
+
+    int getPar1(void) const { return par1; }
+    int getPar2(void) const { return par2; }
 };
 
 class InCommand : public TwoParametersCommand {
 
-    public:
+public:
+    InCommand(std::istream &istr);
 
-        InCommand(std::istream & istr);
+    virtual void process(void) override;
 
-        virtual void process(void) override;
-
-        virtual ~InCommand() override;
+    virtual ~InCommand() override;
 };
 
 class OutCommand : public TwoParametersCommand {
 
-    public:
+public:
+    OutCommand(std::istream &istr);
 
-        OutCommand(std::istream & istr);
+    virtual void process(void) override;
 
-        virtual void process(void) override;
-
-        virtual ~OutCommand() override;
+    virtual ~OutCommand() override;
 };
 
 class DemandCommand : public TwoParametersCommand {
 
-    public:
+public:
+    DemandCommand(std::istream &istr);
 
-        DemandCommand(std::istream & istr);
+    virtual void process(void) override;
 
-        virtual void process(void) override;
-
-        virtual ~DemandCommand() override;
+    virtual ~DemandCommand() override;
 };
 
 #endif
