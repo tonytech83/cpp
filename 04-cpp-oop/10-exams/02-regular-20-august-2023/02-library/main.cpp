@@ -1,7 +1,7 @@
-#include <string>
-#include <map>
 #include <iostream>
+#include <map>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -16,23 +16,21 @@ class Book {
 public:
     Book() = default;
 
-    Book(size_t id, istream & istr) : id(id) {
+    Book(size_t id, istream &istr) : id(id) {
 
         getline(istr, author);
         getline(istr, title);
-
     }
 
     size_t getId() const { return id; }
-    const string & getTitle() const { return title; }
-    const string & getAuthor() const { return author; }
-    const string & getBorrower() const { return borrower; }
+    const string &getTitle() const { return title; }
+    const string &getAuthor() const { return author; }
+    const string &getBorrower() const { return borrower; }
 
-    void setBorrowed(const string & reader = "") { borrower = reader; }
-
+    void setBorrowed(const string &reader = "") { borrower = reader; }
 };
 
-#include "input.h"
+#include "input.h_working1"
 
 int main(void) {
 
@@ -41,7 +39,7 @@ int main(void) {
 
     read<Book>(books, cin);
 
-    while(true) {
+    while (true) {
 
         size_t command;
         cin >> command;
@@ -52,7 +50,7 @@ int main(void) {
         cin >> bookID;
 
         string borrower;
-        switch(command) {
+        switch (command) {
             case 1:
                 print<Book>(books[bookID], cout);
                 break;
@@ -63,7 +61,6 @@ int main(void) {
             case 3:
                 borrow<Book>(books[bookID]);
                 break;
-            
         }
     }
 

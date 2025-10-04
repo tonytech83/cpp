@@ -1,0 +1,73 @@
+#pragma once
+#include <iostream>
+#include <map>
+#include <string>
+#include <type_traits>
+using namespace std;
+
+// ------------------- READ -------------------
+template<typename T>
+void read(map<size_t, T> &books, istream &in) {
+    while (true) {
+        string line;
+        if (!getline(in, line))
+            break;
+        if (line == "end")
+            break;
+        if (line.empty())
+            continue;
+
+        auto id = static_cast<size_t>(stoull(line));
+        T book(id, in);
+        books[id] = book;
+    }
+}
+
+// ------------------- traits to choose the right print() -------------------
+template<typename T>
+struct is_books_map_ptr : std::false_type {};
+
+template<>
+struct is_books_map_ptr<std::map<size_t, class Book> *> : std::true_type {};
+
+template<>
+struct is_books_map_ptr<const std::map<size_t, class Book> *> : std::true_type {};
+
+// ------------------- PRINT (single Book) -------------------
+template<typename T, std::enable_if_t<std::is_same_v<std::remove_cv_t<T>, class Book>, int> = 0>
+void print(const T &book, ostream &out) {
+    out << "book " << book.getId() << " \"" << book.getTitle() << "\""
+        << " by \"" << book.getAuthor() << "\" is ";
+
+    if (book.getBorrower().empty())
+        out << "\"available\"";
+    else
+        out << "\"borrowed by " << book.getBorrower() << "\"";
+
+    out << '\n';
+}
+
+// ------------------- BORROW -------------------
+template<typename T>
+void borrow(T &book, const string &borrower) {
+    book.setBorrowed(borrower);
+    print(book, cout);
+}
+
+template<typename T>
+void borrow(T &book) {
+    book.setBorrowed("");
+    print(book, cout);
+}
+
+// ------------------- PRINT (library: map<size_t, Book>*) -------------------
+template<typename T, std::enable_if_t<is_books_map_ptr<T>::value, int> = 0>
+
+void print(const T &booksPtr, ostream &out) {
+    auto &books = *booksPtr;
+    out << "-----\n";
+    out << "total books: " << books.size() << '\n';
+    for (const auto &kv: books) {
+        print(kv.second, out); // reuse the single-book printer
+    }
+}

@@ -1,0 +1,57 @@
+#pragma once
+#include <iostream>
+#include <map>
+#include <string>
+#include <type_traits>
+using namespace std;
+
+// READ
+template<typename T>
+void read(map<size_t, T> &books, istream &in) {
+    while (true) {
+        string line;
+        if (!getline(in, line)) break;
+        if (line == "end") break;
+        if (line.empty()) continue;
+
+        size_t id = static_cast<size_t>(stoull(line));
+        T book(id, in);
+        books[id] = book;
+    }
+}
+
+// PRINT (one template, two behaviors)
+template<typename T>
+void print(const T &x, ostream &out) {
+    if constexpr (std::is_same_v<T, std::map<size_t, class Book>*> ||
+                  std::is_same_v<T, const std::map<size_t, class Book>*>) {
+        // library print
+        auto &books = *x;
+        out << "-----\n";
+        out << "total books: " << books.size() << '\n';
+        for (const auto &kv : books)
+            print(kv.second, out);
+                  } else {
+                      // single book print
+                      out << "book " << x.getId()
+                          << " \"" << x.getTitle() << "\""
+                          << " by \"" << x.getAuthor() << "\" is ";
+                      if (x.getBorrower().empty())
+                          out << "\"available\"";
+                      else
+                          out << "\"borrowed by " << x.getBorrower() << "\"";
+                      out << '\n';
+                  }
+}
+
+// BORROW
+template<typename T>
+void borrow(T &book, const string &borrower) {
+    book.setBorrowed(borrower);
+    print(book, cout);
+}
+template<typename T>
+void borrow(T &book) {
+    book.setBorrowed("");
+    print(book, cout);
+}
